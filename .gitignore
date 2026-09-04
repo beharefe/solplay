@@ -1,0 +1,6 @@
+/target
+/.env
+/.solplay/
+*.db
+*.db-shm
+*.db-wal
