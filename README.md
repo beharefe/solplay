@@ -56,6 +56,10 @@ cargo test --workspace
 
 MIT. See [LICENSE](LICENSE).
 
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## Usage
 
 ```bash
