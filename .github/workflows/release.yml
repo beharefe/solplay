@@ -26,6 +26,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build --locked --release -p solplay
+        env:
+          # Rust 1.95 emits LLVM 22 bitcode, while the macOS linker on GitHub
+          # runners currently cannot link it when LTO is enabled.
+          CARGO_PROFILE_RELEASE_LTO: "false"
       - name: Package binary
         env:
           TARGET: ${{ matrix.target }}
