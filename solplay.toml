@@ -1,0 +1,36 @@
+[rpc]
+http = "${SOLPLAY_RPC_HTTP}"
+ws = "${SOLPLAY_RPC_WS}"
+
+[[destinations]]
+name = "backend"
+type = "webhook"
+url = "${SOLPLAY_WEBHOOK_URL}"
+secret = "${SOLPLAY_WEBHOOK_SECRET}"
+
+[[destinations]]
+name = "tg_test"
+type = "telegram"
+bot_token = "${SOLPLAY_TG_TEST_TELEGRAM_BOT_TOKEN}"
+chat_id = "7638857113"
+
+[[subscriptions]]
+name = "test-wallet"
+address = "HtNmnQDqoNNZfSPAZkv6WQPHQqrftD84iZ2ytgF8Wqiz"
+events = ["token.received"]
+
+[subscriptions.filters]
+mint = "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU"
+min_amount = "1"
+max_amount = "5"
+
+[subscriptions.route]
+destinations = ["backend"]
+
+[[subscriptions]]
+name = "te"
+address = "HtNmnQDqoNNZfSPAZkv6WQPHQqrftD84iZ2ytgF8Wqiz"
+events = ["token.received"]
+
+[subscriptions.route]
+destinations = ["tg_test"]

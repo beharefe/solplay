@@ -1,0 +1,20 @@
+[rpc]
+http = "${SOLPLAY_RPC_HTTP}"
+ws = "${SOLPLAY_RPC_WS}"
+
+[[destinations]]
+name = "discord"
+type = "discord"
+url = "${SOLPLAY_DISCORD_WEBHOOK_URL}"
+
+[[subscriptions]]
+name = "wallet"
+address = "${SOLPLAY_WATCH_ADDRESS}"
+events = ["token.received"]
+
+[subscriptions.filters]
+mint = "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU"
+min_amount = "1"
+
+[subscriptions.route]
+destinations = ["discord"]

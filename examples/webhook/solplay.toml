@@ -1,0 +1,21 @@
+[rpc]
+http = "${SOLPLAY_RPC_HTTP}"
+ws = "${SOLPLAY_RPC_WS}"
+
+[[destinations]]
+name = "backend"
+type = "webhook"
+url = "${SOLPLAY_WEBHOOK_URL}"
+secret = "${SOLPLAY_WEBHOOK_SECRET}"
+
+[[subscriptions]]
+name = "wallet"
+address = "${SOLPLAY_WATCH_ADDRESS}"
+events = ["token.received"]
+
+[subscriptions.filters]
+mint = "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU"
+min_amount = "1"
+
+[subscriptions.route]
+destinations = ["backend"]

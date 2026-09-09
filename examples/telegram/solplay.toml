@@ -1,0 +1,21 @@
+[rpc]
+http = "${SOLPLAY_RPC_HTTP}"
+ws = "${SOLPLAY_RPC_WS}"
+
+[[destinations]]
+name = "telegram"
+type = "telegram"
+bot_token = "${SOLPLAY_TELEGRAM_BOT_TOKEN}"
+chat_id = "${SOLPLAY_TELEGRAM_CHAT_ID}"
+
+[[subscriptions]]
+name = "wallet"
+address = "${SOLPLAY_WATCH_ADDRESS}"
+events = ["token.received"]
+
+[subscriptions.filters]
+mint = "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU"
+min_amount = "1"
+
+[subscriptions.route]
+destinations = ["telegram"]
